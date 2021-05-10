@@ -5,3 +5,5 @@ Using the this code if the product price is dropped below TARGET value, we will 
 
 Result:
 ![mail](https://user-images.githubusercontent.com/72061061/117691575-adfd2480-b1d9-11eb-964e-88d7b04d3fa2.jpg =200x400)
+
+<img src="https://user-images.githubusercontent.com/72061061/117691575-adfd2480-b1d9-11eb-964e-88d7b04d3fa2.jpg" width="300" height="600">
