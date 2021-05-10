@@ -12,7 +12,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from time import sleep
 
-
+"""This function is used to get the product price""""
 def get_product_price(url, HEADERS):
     try:
         response = get(url, headers=HEADERS)
@@ -28,6 +28,7 @@ def get_product_price(url, HEADERS):
     except BaseException as e:
         print(e)
 
+"""This function is used to get the product title"""
 def get_product_title(url, HEADERS):
     try:
         response = get(url, headers=HEADERS)
@@ -47,6 +48,7 @@ HEADERS = ({'User-Agent':
 
 url = 'https://www.amazon.in/All-new-Fire-TV-Stick-with-Alexa-Voice-Remote/dp/B07ZZX5ZSW'
 
+# email details
 from_email = 'xyz@gmail.com'
 from_email_password = "password"
 to_email = 'xyz@gmail.com'
@@ -58,9 +60,12 @@ product_title = get_product_title(url, HEADERS)
 
 mail_content = f"Hi Charan, \n\nThe Price is dropped for your product {product_title} \nURL: {url} \n\nThanks"
 
-
+# run the code continuously 
 while True:
     price = get_product_price(url, HEADERS)
+    
+    # get the price, if product price is less than expected target price, then trigger the alert mail, 
+    # else keep checking the product price.
     try:
         if price < TARGET_PRICE:
             message = MIMEMultipart()
