@@ -4,4 +4,4 @@ This program can be used to check the product price of a certain product on the 
 Using the this code if the product price is dropped below TARGET value, we will recieve the mail.
 
 Result:
-![mail](https://user-images.githubusercontent.com/72061061/117691575-adfd2480-b1d9-11eb-964e-88d7b04d3fa2.jpg | width = 200 | height = 400)
+![mail](https://user-images.githubusercontent.com/72061061/117691575-adfd2480-b1d9-11eb-964e-88d7b04d3fa2.jpg =200x400)
