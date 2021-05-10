@@ -13,7 +13,7 @@ from email.mime.text import MIMEText
 from time import sleep
 
 
-def get_product_price():
+def get_product_price(url, HEADERS):
     try:
         response = get(url, headers=HEADERS)
         amazon_html = BeautifulSoup(response.text, "lxml")
@@ -28,7 +28,7 @@ def get_product_price():
     except BaseException as e:
         print(e)
 
-def get_product_title():
+def get_product_title(url, HEADERS):
     try:
         response = get(url, headers=HEADERS)
         amazon_html = BeautifulSoup(response.text, "lxml")
@@ -54,13 +54,13 @@ to_email = 'xyz@gmail.com'
 TARGET_PRICE = 3000
 SECONDS = 300
 
-product_title = get_product_title()
+product_title = get_product_title(url, HEADERS)
 
 mail_content = f"Hi Charan, \n\nThe Price is dropped for your product {product_title} \nURL: {url} \n\nThanks"
 
 
 while True:
-    price = get_product_price()
+    price = get_product_price(url, HEADERS)
     try:
         if price < TARGET_PRICE:
             message = MIMEMultipart()
@@ -81,6 +81,9 @@ while True:
             print('Mail Sent successfully to ',to_email)
             # sleep for SECONDS and then again check
             sleep(SECONDS)
+        else:
+            print(f'Will check the product price after {SECONDS} sec')
+            # sleep for SECONDS and then again check
+            sleep(SECONDS)
     except BaseException as e:
         print(e)
-        sleep(1)
